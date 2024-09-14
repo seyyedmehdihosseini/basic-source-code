@@ -1,6 +1,6 @@
 package com.basicsourcecode.repository;
 
-import com.example.basicbank.basic.entity.BasicEntity;
+import com.basicsourcecode.entity.BasicEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;

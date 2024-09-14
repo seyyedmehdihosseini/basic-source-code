@@ -1,6 +1,6 @@
 package com.basicsourcecode.mapping;
 
-import com.example.basicbank.basic.entity.BasicEntity;
+import com.basicsourcecode.entity.BasicEntity;
 
 import java.io.Serializable;
 import java.util.List;

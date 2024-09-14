@@ -1,6 +1,6 @@
 package com.basicsourcecode.customization;
 
-import com.example.basicbank.basic.entity.BasicEntity;
+import com.basicsourcecode.entity.BasicEntity;
 import org.springframework.beans.BeanUtils;
 
 import java.io.Serializable;

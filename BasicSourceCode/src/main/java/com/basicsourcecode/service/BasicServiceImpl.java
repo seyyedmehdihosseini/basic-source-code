@@ -1,9 +1,9 @@
 package com.basicsourcecode.service;
 
-import com.example.basicbank.basic.customization.BeanUtilsCustom;
-import com.example.basicbank.basic.entity.BasicEntity;
-import com.example.basicbank.basic.repository.BasicRepository;
-import com.example.basicbank.basic.repository.BasicRepositoryImpl;
+import com.basicsourcecode.customization.BeanUtilsCustom;
+import com.basicsourcecode.entity.BasicEntity;
+import com.basicsourcecode.repository.BasicRepository;
+import com.basicsourcecode.repository.BasicRepositoryImpl;
 
 import java.io.Serializable;
 import java.util.List;

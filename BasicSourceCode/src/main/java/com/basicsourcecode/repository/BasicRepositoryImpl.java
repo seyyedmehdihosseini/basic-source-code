@@ -1,6 +1,6 @@
 package com.basicsourcecode.repository;
 
-import com.example.basicbank.basic.entity.BasicEntity;
+import com.basicsourcecode.entity.BasicEntity;
 import jakarta.persistence.MappedSuperclass;
 import org.springframework.beans.factory.annotation.Autowired;
 

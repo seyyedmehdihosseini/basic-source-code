@@ -1,7 +1,7 @@
 package com.basicsourcecode.controller;
 
-import com.example.basicbank.basic.entity.BasicEntity;
-import com.example.basicbank.basic.service.BasicService;
+import com.basicsourcecode.entity.BasicEntity;
+import com.basicsourcecode.service.BasicService;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

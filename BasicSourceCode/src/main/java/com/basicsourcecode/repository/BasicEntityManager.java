@@ -1,6 +1,6 @@
 package com.basicsourcecode.repository;
 
-import com.example.basicbank.basic.entity.BasicEntity;
+import com.basicsourcecode.entity.BasicEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.hibernate.Session;

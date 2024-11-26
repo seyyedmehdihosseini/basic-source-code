@@ -6,6 +6,7 @@ import com.basicsourcecode.repository.BasicRepository;
 import com.basicsourcecode.repository.BasicRepositoryImpl;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 public class BasicServiceImpl<E extends BasicEntity<P>,P extends Serializable , R extends BasicRepository<E,P>> extends BasicRepositoryImpl<E,P,R> implements BasicService<E,P> {
@@ -41,7 +42,7 @@ public class BasicServiceImpl<E extends BasicEntity<P>,P extends Serializable , 
 
     @Override
     public List<E> findById(P id) {
-        return repository.findAllById((Iterable<P>) id);
+        return repository.findAllById(Collections.singletonList(id));
     }
 
     @Override

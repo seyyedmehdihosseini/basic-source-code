@@ -4,6 +4,7 @@ import com.basicsourcecode.entity.BasicEntity;
 import com.basicsourcecode.service.BasicService;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,14 +21,8 @@ public abstract class BasicController<E extends BasicEntity<P>, P extends Serial
     protected final String FIND_BY_ID = "/find-by-id/";
     protected final String FIND_ALL = "/find-all";
 
+    @Autowired
     protected S service;
-
-    protected BasicController(S service) {
-        this.service = service;
-    }
-
-    protected BasicController() {
-    }
 
     @PostMapping(SAVE)
     public ResponseEntity<?> save(@Valid @RequestBody E entity) {

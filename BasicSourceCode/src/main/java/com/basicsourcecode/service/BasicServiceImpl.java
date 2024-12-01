@@ -1,6 +1,6 @@
 package com.basicsourcecode.service;
 
-import com.basicsourcecode.customization.BeanUtilsCustom;
+import com.basicsourcecode.utils.beanUtils.BeanUtilsCustom;
 import com.basicsourcecode.entity.BasicEntity;
 import com.basicsourcecode.repository.BasicRepository;
 import com.basicsourcecode.repository.BasicRepositoryImpl;

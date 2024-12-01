@@ -81,7 +81,7 @@ class DynamicOutPutCodeGenerator extends ConstantBasicCodeGenerator {
 
             // پیدا کردن کلاس دارای @SpringBootApplication
             String mainClass = findSpringBootApplicationClass(sourceRoot);
-            return projectRootPath.resolve(baseJavaPath).resolve(mainClass.replace(".", "\\"));
+            return projectRootPath.resolve(baseJavaPath).resolve(mainClass.replace(".", File.separator));
         } catch (Exception e) {
             System.out.println("ERROR WHEN READ DIRECTORY BASE PROJECT .... " + e.getMessage());
             return null;

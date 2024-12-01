@@ -1,4 +1,4 @@
-package com.basicsourcecode.customization;
+package com.basicsourcecode.utils.beanUtils;
 
 import com.basicsourcecode.entity.BasicEntity;
 import org.springframework.beans.BeanUtils;

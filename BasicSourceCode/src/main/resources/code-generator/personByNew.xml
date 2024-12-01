@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name = "person" otherLanguageName="شخص" typeOfPrimaryKey="Long" tableName="person"
+       overwrite="true" xmlns="https://www.basicSourceCodeXSD.com" entitySaveToDB="true" >
+    <properties>
+        <property name="firstName" type="String" otherLanguageName="نام" fieldSaveToDB="true" />
+        <property name="surname" type="String" otherLanguageName="نام خانوادگی" fieldSaveToDB="true" />
+        <property name="phoneNumber" type="String" otherLanguageName="شماره تماس" />
+    </properties>
+
+</model>

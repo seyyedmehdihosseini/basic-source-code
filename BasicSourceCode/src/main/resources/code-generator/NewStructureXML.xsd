@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="https://www.basicSourceCodeXSD.com"
+        xmlns:tns="https://www.basicSourceCodeXSD.com"
+        elementFormDefault="qualified">
+
+    <element name="model" type="tns:Model"></element>
+
+    <complexType name="Model">
+        <sequence>
+            <!--            <element name="id" type="tns:Id" minOccurs="1" maxOccurs="1"></element>-->
+            <element name="properties" type="tns:Properties"></element>
+            <element name="relations" type="tns:Relations" minOccurs="0"></element>
+        </sequence>
+        <attribute name="name" type="string" use="required"></attribute>
+        <attribute name="otherLanguageName" type="string"></attribute>
+        <attribute name="tableName" type="string"></attribute>
+        <attribute name="typeOfPrimaryKey" type="tns:TypeOfPrimaryKey" use="required" ></attribute>
+        <attribute name="overwrite" type="boolean" default="false"></attribute>
+        <attribute name="entitySaveToDB" type="boolean" default="false"></attribute>
+        <!--        <attribute name="pluralOtherLanguage" type="string"></attribute>-->
+        <!--        <attribute name="addProtectedRegions" type="boolean" default="true"></attribute>-->
+        <!--        <attribute name="deletable" type="boolean" default="true"></attribute>-->
+        <!--        <attribute name="logicallyDeletable" type="boolean" default="false"></attribute>-->
+        <!--        <attribute name="checkPermissions" type="boolean" default="true"></attribute>-->
+        <!--        <attribute name="comparable" type="boolean" default="false"></attribute>-->
+        <!--        <attribute name="loggable" type="boolean" default="false"></attribute>-->
+        <!--        <attribute name="treeParentRelation" type="string"></attribute>-->
+        <!--        <attribute name="iconType" type="string"></attribute>-->
+        <!--        <attribute name="versionable" type="boolean"></attribute>-->
+    </complexType>
+
+    <complexType name="Id">
+        <attribute name="type" type="tns:TypeOfPrimaryKey" use="required"></attribute>
+        <attribute name="generator" type="tns:IdGenerator" use="required"></attribute>
+        <attribute name="sequenceName" type="string"></attribute>
+        <attribute name="otherLanguageName" type="string"></attribute>
+        <attribute name="columnName" type="string"></attribute>
+        <attribute name="length" type="integer"></attribute>
+    </complexType>
+
+    <simpleType name="TypeOfPrimaryKey">
+        <restriction base="string">
+            <enumeration value="Short"></enumeration>
+            <enumeration value="Integer"></enumeration>
+            <enumeration value="Long"></enumeration>
+            <enumeration value="String"></enumeration>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="IdGenerator">
+        <restriction base="string">
+            <enumeration value="native"></enumeration>
+            <enumeration value="uuid"></enumeration>
+            <enumeration value="sequence"></enumeration>
+            <enumeration value="assigned"></enumeration>
+        </restriction>
+    </simpleType>
+
+    <complexType name="Properties">
+        <sequence>
+            <element name="property" type="tns:Property" minOccurs="0" maxOccurs="unbounded"></element>
+        </sequence>
+    </complexType>
+
+
+    <!--    برای النکه element های ما ترتیب برای آنها مهم نباشد میتوانیم از تگ choice و درون آن از maxOccurs=unbounded استفاده کنیم -->
+    <!--    اما اگر بخواهیم ترتیب قرار گیری تکتک element مهم باشد باید از تگ sequence استفاده کنیم  -->
+    <complexType name="Relations">
+        <sequence>
+            <element name="oneToOne" type="tns:OneToOne" minOccurs="0" maxOccurs="unbounded"></element>
+            <element name="oneToMany" type="tns:OneToMany" minOccurs="0" maxOccurs="unbounded"></element>
+            <element name="manyToOne" type="tns:ManyToOne" minOccurs="0" maxOccurs="unbounded"></element>
+            <element name="manyToMany" type="tns:ManyToMany" minOccurs="0" maxOccurs="unbounded"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="Property">
+        <sequence>
+            <element name="enum" type="tns:Enum" minOccurs="0"
+                     maxOccurs="1">
+            </element>
+        </sequence>
+        <attribute name="name" type="string" use="required"></attribute>
+        <attribute name="type" type="tns:SimpleType" use="required"></attribute>
+        <attribute name="required" type="boolean" default="false"></attribute>
+        <attribute name="unique" type="boolean" default="false"></attribute>
+        <attribute name="otherLanguageName" type="string"></attribute>
+        <attribute name="columnName" type="string"></attribute>
+        <attribute name="length" type="integer" default="255"></attribute>
+        <attribute name="dateTime" type="boolean" default="false"></attribute>
+        <attribute name="time" type="boolean" default="false"></attribute>
+        <attribute name="min" type="integer"></attribute>
+        <attribute name="max" type="integer"></attribute>
+        <attribute name="fieldSaveToDB" type="boolean" default="false"></attribute>
+        <!--        <attribute name="password" type="boolean" default="false"></attribute>-->
+        <!--        <attribute name="currency" type="boolean" default="false"></attribute>-->
+        <!--        <attribute name="ip" type="boolean" default="false"></attribute>-->
+        <!--        <attribute name="color" type="boolean" default="false"></attribute>-->
+        <!--        <attribute name="html" type="boolean" default="false"></attribute>-->
+    </complexType>
+
+    <simpleType name="SimpleType">
+        <restriction base="string">
+            <enumeration value="Boolean"></enumeration>
+            <enumeration value="Byte"></enumeration>
+            <enumeration value="Short"></enumeration>
+            <enumeration value="Integer"></enumeration>
+            <enumeration value="Long"></enumeration>
+            <enumeration value="Double"></enumeration>
+            <enumeration value="Character"></enumeration>
+            <enumeration value="String"></enumeration>
+            <enumeration value="Date"></enumeration>
+            <enumeration value="Blob"></enumeration>
+            <enumeration value="Clob"></enumeration>
+        </restriction>
+    </simpleType>
+
+    <complexType name="Enum">
+        <sequence>
+            <element name="item" type="tns:EnumItem" minOccurs="2"
+                     maxOccurs="unbounded">
+            </element>
+        </sequence>
+        <attribute name="includeCodeInTitle" type="boolean" default="false"></attribute>
+    </complexType>
+
+    <complexType name="EnumItem">
+        <attribute name="name" type="string" use="required"></attribute>
+        <attribute name="title" type="string" use="required"></attribute>
+        <attribute name="code" type="integer"></attribute>
+    </complexType>
+
+    <complexType name="OneToOne">
+        <attribute name="name" type="string" use="required"></attribute>
+        <attribute name="target" type="string" use="required"></attribute>
+        <attribute name="required" type="boolean" default="false"></attribute>
+        <attribute name="unique" type="boolean" default="false"></attribute>
+        <attribute name="otherLanguageName" type="string"></attribute>
+        <attribute name="columnName" type="string"></attribute>
+        <attribute name="inverseColumnName" type="string"></attribute>
+        <attribute name="foreignKey" type="string"></attribute>
+        <attribute name="inverseForeignKey" type="string"></attribute>
+        <attribute name="joinTable" type="string"></attribute>
+    </complexType>
+
+    <complexType name="ManyToOne">
+        <attribute name="name" type="string" use="required"></attribute>
+        <attribute name="target" type="string" use="required"></attribute>
+        <attribute name="required" type="boolean" default="false"></attribute>
+        <attribute name="unique" type="boolean" default="false"></attribute>
+        <attribute name="otherLanguageName" type="string"></attribute>
+        <attribute name="columnName" type="string"></attribute>
+        <attribute name="foreignKey" type="string"></attribute>
+    </complexType>
+
+    <complexType name="OneToMany">
+        <attribute name="name" type="string" use="required"></attribute>
+        <attribute name="target" type="string" use="required"></attribute>
+        <attribute name="required" type="boolean" default="false"></attribute>
+        <attribute name="unique" type="boolean" default="false"></attribute>
+        <attribute name="otherLanguageName" type="string"></attribute>
+        <attribute name="inverseColumnName" type="string"></attribute>
+        <attribute name="inverseForeignKey" type="string"></attribute>
+        <attribute name="withSet" type="boolean" default="true"></attribute>
+        <attribute name="strongToWeak" type="boolean" default="false"></attribute>
+    </complexType>
+
+    <complexType name="ManyToMany">
+        <attribute name="name" type="string" use="required"></attribute>
+        <attribute name="target" type="string" use="required"></attribute>
+        <attribute name="required" type="boolean" default="false"></attribute>
+        <attribute name="unique" type="boolean" default="false"></attribute>
+        <attribute name="otherLanguageName" type="string"></attribute>
+        <attribute name="columnName" type="string"></attribute>
+        <attribute name="inverseColumnName" type="string"></attribute>
+        <attribute name="foreignKey" type="string"></attribute>
+        <attribute name="inverseForeignKey" type="string"></attribute>
+        <attribute name="joinTable" type="string"></attribute>
+        <attribute name="withSet" type="boolean" default="true"></attribute>
+    </complexType>
+</schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="nameEntityClass" tableName="NameTableForEntityClass" typeOfPrimaryKey="نوع مقدار primaryKey برای جدول دیتابیسی"
+       otherLanguage="نام فارسی کلاس یا هر زبان دیگری" overwrite="false" xmlns="http://www.newBasicSourceCode.com">
+    <!--    تعریف تمام فیلد ها داخل کلاس -->
+    <properties>
+        <!--        فید های مورد نیاز برای هر کلاس -->
+        <property name="nameField" type="" columnName="nameColumnFieldIntoTable"/>
+        <!--        تعریف enumClass برای هر فیلد-->
+        <!--otherLanguage بر اساس زبان هر کشوری میتواند ترجمه شود -->
+        <property name="نام فیلد enum" type="نوع برگشتی مقدار enum" otherLanguage="نام فیلد ها به فارسی یا هر زبان دیگری">
+            <enum>
+                <item name="nameItem" title="otherTitle" code="ordinalCode"/>
+                <item name="nameItem" title="otherTitle" code="ordinalCode"/>
+            </enum>
+        </property>
+    </properties>
+
+    <!--    تعریف ارتباطات بین کلاس هایی که با هم ارتباط دارند و نوع رابطه هر کدام از آنها-->
+    <relations>
+        ارتباطات یک به یک
+        <oneToOne name="" target=""/>
+        ارتباط یک به چند
+        <oneToMany name="" target=""/>
+         ارتباط چند به یک
+        <manyToOne name="" target=""/>
+        ارتباط چند به چند
+        <manyToMany name="" target=""/>
+    </relations>
+
+</model>
